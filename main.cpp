@@ -27,19 +27,16 @@ int main()
     //Let's create the labels first
     noiseTable[0][0] = 0;
     for(x=1;x<8;x++){
-         noiseTable[x][0] = 10 * x;
-        // cout << 10*x << endl;               
+         noiseTable[x][0] = 10 * x;               
     }
     noiseTable[8][0] = 0;
        
     //Take in new read/data for the iteration
-	for (y=1; y<7; y++){
-		soundFile.read (reinterpret_cast<char *> (&sounds), sizeof (sounds));
-		noiseTable[0][y] = sounds.vehicleNo;
-		//cout << sounds.vehicleNo << endl;
-		for (x=1;x<8;x++){
-			noiseTable[x][y] = sounds.noise[x-1];
-			//cout << sounds.noise[x] << endl;
+    for (y=1; y<7; y++){
+	soundFile.read (reinterpret_cast<char *> (&sounds), sizeof (sounds));
+	noiseTable[0][y] = sounds.vehicleNo;
+	for (x=1;x<8;x++){
+		noiseTable[x][y] = sounds.noise[x-1];
 		}
     }
 	
@@ -74,8 +71,6 @@ int main()
 	noiseTable[8][7] = 0;
 	
     //Read Data in Array
-    
-    
     for (y=0; y<8;y++){
         for (x=0; x<9; x++){
             cout << setw(8);
@@ -86,8 +81,7 @@ int main()
             }
         cout << endl; 
     }
-	
-	
+
 	system("PAUSE");
 		  
     
